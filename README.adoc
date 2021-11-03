@@ -32,3 +32,10 @@ image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a
 == What is planned next?
 * Link between image/table/element and list
 * Make generic (Also allow list of tables, or list of x)
+
+== Dev setup
+[source,bash]
+----
+gem build asciidoctor-lists.gemspec
+gem install asciidoctor-lists-0.0.1.gem
+----
