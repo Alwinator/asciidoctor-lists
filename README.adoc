@@ -8,11 +8,22 @@ WIP :)
 === Code
 [source,asciidoc]
 ----
-include::samples/list-of-figures.adoc[]
+== Test the List of Figures Macro
+
+.The wonderful linux logo
+image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux Logo,100,100]
+
+.Another wikipedia SVG image
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[SVG,100,100]
+
+=== List of figures
+
+tof::[]
+
 ----
 
 === Rendered
-image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a8-45ec-acb7-52f37e366ddc.png[]
+image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a8-45ec-acb7-52f37e366ddc.png[Sample,width=400]
 
 == What is planned next?
 * Link between image/table/element and list
