@@ -1,0 +1,19 @@
+= asciidoctor-lists (WIP)
+Adds a list of figures, list of tables (WIP) or list of anything you want!
+
+== Install
+WIP :)
+
+== Sample
+=== Code
+[source,asciidoc]
+----
+include::samples/list-of-figures.adoc[]
+----
+
+=== Rendered
+image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a8-45ec-acb7-52f37e366ddc.png[]
+
+== What is planned next?
+* Link between image/table/element and list
+* Make generic (Also allow list of tables, or list of x)
