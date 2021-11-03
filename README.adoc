@@ -1,4 +1,8 @@
 = asciidoctor-lists (WIP)
+:toc: macro
+:toclevels: 1
+
+image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=https://rubygems.org/gems/asciidoctor-lists]
 Adds a list of figures, list of tables (WIP) or list of anything you want!
 
 == Install
