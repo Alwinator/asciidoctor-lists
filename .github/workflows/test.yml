@@ -1,0 +1,22 @@
+name: Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: asciidoctor/docker-asciidoctor:1.12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build gem
+        run: gem build asciidoctor-lists.gemspec
+
+      - name: Rename gem
+        run: mv asciidoctor-lists* asciidoctor-lists.gem
+
+      - name: Install gem
+        run: gem install asciidoctor-lists.gem
+
+      - name: Build PDF
+        run: asciidoctor-pdf -r asciidoctor-lists samples/list-of-figures.adoc
+

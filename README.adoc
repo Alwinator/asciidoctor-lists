@@ -44,7 +44,7 @@ image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a
 # Build container
 docker build -t asciidoctor-lists .
 # Run Docker
-docker run -it --rm -v $(pwd):/work asciidoctor-lists:latest
+docker run -it --rm -v $(pwd):/work asciidoctor-lists
 # Build sample
 asciidoctor-pdf -r asciidoctor-lists samples/list-of-figures.adoc
 ----
