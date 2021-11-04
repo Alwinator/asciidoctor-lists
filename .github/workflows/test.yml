@@ -12,7 +12,7 @@ jobs:
         run: gem build asciidoctor-lists.gemspec
 
       - name: Rename gem
-        run: mv asciidoctor-lists* asciidoctor-lists.gem
+        run: mv asciidoctor-lists-*.gem asciidoctor-lists.gem
 
       - name: Install gem
         run: gem install asciidoctor-lists.gem
