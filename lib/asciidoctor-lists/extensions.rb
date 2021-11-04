@@ -23,11 +23,11 @@ module AsciidoctorLists
   ListOfFiguresMacroPlaceholder = %(9d9711cf-0e95-4230-9973-78559fe928db)
 
   # Replaces tof::[] with ListOfFiguresMacroPlaceholder
-  class ListOfFiguresMacro < ::Extensions::BlockMacroProcessor
+  class ListOfFiguresMacro < ::Asciidoctor::Extensions::BlockMacroProcessor
     use_dsl
     named :tof
 
-    def process(parent, target, attrs)
+    def process(parent, _target, _attrs)
       create_paragraph parent, ListOfFiguresMacroPlaceholder, {}
     end
   end
