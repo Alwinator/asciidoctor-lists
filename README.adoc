@@ -52,5 +52,5 @@ asciidoctor-pdf -r asciidoctor-lists samples/list-of-figures.adoc
 [source,bash]
 ----
 gem build asciidoctor-lists.gemspec
-gem install asciidoctor-lists-0.0.1.gem
+gem install asciidoctor-lists-0.0.2.gem
 ----
