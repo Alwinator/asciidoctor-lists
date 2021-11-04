@@ -18,5 +18,5 @@ jobs:
         run: gem install asciidoctor-lists.gem
 
       - name: Build PDF
-        run: asciidoctor-pdf -r asciidoctor-lists samples/list-of-figures.adoc
+        run: asciidoctor-pdf -r asciidoctor-lists samples/list-sample.adoc
 
