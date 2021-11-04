@@ -1,11 +1,12 @@
-= asciidoctor-lists (WIP)
+= asciidoctor-lists
 :toc: macro
 :toclevels: 1
 
+image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml/badge.svg[Test, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml]
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml/badge.svg[Build, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml]
 image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=https://rubygems.org/gems/asciidoctor-lists]
 
-Adds a list of figures, list of tables (WIP) or list of anything you want!
+Adds a list of figures, list of tables (WIP) or list of anything you want (WIP)!
 
 == Install
 [source,asciidoc]
@@ -42,7 +43,7 @@ image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a
 [source,bash]
 ----
 # Build container
-docker build -t asciidoctor-lists .
+docker build --no-cache -t asciidoctor-lists .
 # Run Docker
 docker run -it --rm -v $(pwd):/work asciidoctor-lists
 # Build sample
@@ -53,5 +54,5 @@ asciidoctor-pdf -r asciidoctor-lists samples/list-of-figures.adoc
 [source,bash]
 ----
 gem build asciidoctor-lists.gemspec
-gem install asciidoctor-lists-0.0.2.gem
+gem install asciidoctor-lists-x.x.x.gem
 ----
