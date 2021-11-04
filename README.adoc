@@ -6,7 +6,7 @@ image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml/
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml/badge.svg[Build, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml]
 image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=https://rubygems.org/gems/asciidoctor-lists]
 
-An https://asciidoctor.org/[asciidoctor] extension which adds a list of figures, list of tables (WIP) or list of anything you want (WIP)!
+An https://asciidoctor.org/[asciidoctor] extension which adds a list of figures, list of tables or list of anything you want!
 
 == Install
 [source,asciidoc]
@@ -18,26 +18,36 @@ gem install asciidoctor-lists
 === Code
 [source,asciidoc]
 ----
-== Test the List of Figures Macro
+...
 
-.The wonderful linux logo
-image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux Logo,100,100]
+.And this is the second one
+|===
+|Column 1, Header Row |Column 2, Header Row
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
 
 .Another wikipedia SVG image
 image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[SVG,100,100]
 
 === List of figures
+element_list::[element=image]
 
-tof::[]
+=== List of tables
+element_list::[element=table]
 
 ----
 
 === Rendered
-image::https://user-images.githubusercontent.com/39517491/139903592-84e9e6cd-c1a8-45ec-acb7-52f37e366ddc.png[Sample,width=400]
+image::img/sample.png[Sample,width=400]
 
 == What is planned next?
 * Link between image/table/element and list
-* Make generic (Also allow list of tables, or list of x)
 
 == Docker
 [source,bash]
