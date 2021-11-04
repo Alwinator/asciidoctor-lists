@@ -6,7 +6,7 @@ image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml/
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml/badge.svg[Build, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml]
 image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=https://rubygems.org/gems/asciidoctor-lists]
 
-Adds a list of figures, list of tables (WIP) or list of anything you want (WIP)!
+An https://asciidoctor.org/[asciidoctor] extension which adds a list of figures, list of tables (WIP) or list of anything you want (WIP)!
 
 == Install
 [source,asciidoc]
