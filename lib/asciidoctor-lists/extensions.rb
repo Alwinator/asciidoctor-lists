@@ -30,15 +30,13 @@ module AsciidoctorLists
         end
         tof_blocks.each do |block|
           references_asciidoc = []
-          # MacroPlaceholder[block.lines[0]][:element]
-            puts MacroPlaceholder[block.lines[0]][:element]
-            document.find_by(context: :table).each do |element|
+          element_name = ":" + MacroPlaceholder[block.lines[0]][:element]
+          document.find_by(context: eval(element_name)).each do |element|
 
-              if element.caption
-                references_asciidoc << %(#{element.caption}#{element.title} +)
-              end
+            if element.caption
+              references_asciidoc << %(#{element.caption}#{element.title} +)
             end
-
+          end
 
           block_index = block.parent.blocks.index do |b|
             b == block
@@ -54,13 +52,13 @@ module AsciidoctorLists
       # where resultant blocks are returned as a list instead of attached to
       # the parent.
       def parse_asciidoc(parent, content, attributes = {})
-      result = []
-      reader = ::Asciidoctor::Reader.new content
-      while reader.has_more_lines?
-        block = ::Asciidoctor::Parser.next_block reader, parent, attributes
-        result << block if block
-      end
-      result
+        result = []
+        reader = ::Asciidoctor::Reader.new content
+        while reader.has_more_lines?
+          block = ::Asciidoctor::Parser.next_block reader, parent, attributes
+          result << block if block
+        end
+        result
       end
     end
   end
