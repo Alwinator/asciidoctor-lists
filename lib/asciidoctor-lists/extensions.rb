@@ -22,37 +22,33 @@ module AsciidoctorLists
   # Searches for the figures and replaced ListOfFiguresMacroPlaceholder with the list of figures
   # Inspired by https://github.com/asciidoctor/asciidoctor-bibtex/blob/master/lib/asciidoctor-bibtex/extensions.rb#L162
   class ListOfFiguresTreeprocessor < ::Asciidoctor::Extensions::Treeprocessor
-     def process document
+     def process(document)
        tof_blocks = document.find_by do |b|
-          # for fast search (since most searches shall fail)
-          (b.content_model == :simple) && (b.lines.size == 1) \
+         # for fast search (since most searches shall fail)
+         (b.content_model == :simple) && (b.lines.size == 1) \
             && (MacroPlaceholder.keys.include?(b.lines[0]))
-        end
-        tof_blocks.each do |block|
-          references_asciidoc = []
-          element_name = ":" + MacroPlaceholder[block.lines[0]][:element]
-          document.find_by(context: eval(element_name)).each do |element|
+       end
+       tof_blocks.each do |block|
+         references_asciidoc = []
+         element_name = ":" + MacroPlaceholder[block.lines[0]][:element]
+         document.find_by(context: eval(element_name)).each do |element|
 
-            if element.caption
-              element_id = SecureRandom.uuid
-              # element.set_attr('id', element_id)
-              # document.references[:ids][element.attributes['id']] = element_id
-              puts document.references[:ids]
-              # xref:new_id[use attributes within the link macro]
-              references_asciidoc << %(xref:#{element_id}[#{element.title}] +)
-            end
-          end
+           if element.caption
+             element.id = SecureRandom.uuid
+             references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
+           end
+         end
 
-          block_index = block.parent.blocks.index do |b|
-            b == block
-          end
-          reference_blocks = parse_asciidoc block.parent, references_asciidoc
-          reference_blocks.reverse.each do |b|
-            block.parent.blocks.insert block_index, b
-          end
-          block.parent.blocks.delete_at block_index + reference_blocks.size
-        end
-      end
+         block_index = block.parent.blocks.index do |b|
+           b == block
+         end
+         reference_blocks = parse_asciidoc block.parent, references_asciidoc
+         reference_blocks.reverse.each do |b|
+           block.parent.blocks.insert block_index, b
+         end
+         block.parent.blocks.delete_at block_index + reference_blocks.size
+       end
+     end
       # This is an adapted version of Asciidoctor::Extension::parse_content,
       # where resultant blocks are returned as a list instead of attached to
       # the parent.

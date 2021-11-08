@@ -1,6 +1,4 @@
 = asciidoctor-lists
-:toc: macro
-:toclevels: 1
 
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml/badge.svg[Test, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml]
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml/badge.svg[Build, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml]
@@ -53,7 +51,7 @@ image::img/sample.png[Sample,width=400]
 [source,bash]
 ----
 # Build container
-docker build --no-cache -t asciidoctor-lists .
+docker build -t asciidoctor-lists .
 # Run Docker
 docker run -it --rm -v $(pwd):/work asciidoctor-lists
 # Build sample
@@ -61,6 +59,13 @@ asciidoctor-pdf -r asciidoctor-lists samples/list-sample.adoc
 ----
 
 == Dev setup
+=== Run
+[source,bash]
+----
+asciidoctor -r ./lib/asciidoctor-lists.rb samples/list-sample.adoc
+----
+
+=== Install Gem
 [source,bash]
 ----
 gem build asciidoctor-lists.gemspec
