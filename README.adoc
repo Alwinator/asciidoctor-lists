@@ -6,6 +6,8 @@ image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=ht
 
 An https://asciidoctor.org/[asciidoctor] extension which adds a list of figures, list of tables or list of anything you want!
 
+*Pull Request are always welcome! :)*
+
 == Install
 [source,asciidoc]
 ----
@@ -43,9 +45,6 @@ element_list::[element=table]
 
 === Rendered
 image::img/sample.png[Sample,width=400]
-
-== What is planned next?
-* Link between image/table/element and list
 
 == Docker
 [source,bash]
