@@ -1,6 +1,7 @@
 == Test the List Macro
 
 .The wonderful linux logo
+[#this_is_my_id]
 image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux Logo,100,100]
 
 .This is my first table
@@ -31,6 +32,11 @@ image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/40
 
 === List of figures
 element_list::[element=image]
+
+
+
+
+
 
 === List of tables
 element_list::[element=table]

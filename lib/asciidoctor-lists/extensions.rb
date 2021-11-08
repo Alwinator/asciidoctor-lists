@@ -34,7 +34,12 @@ module AsciidoctorLists
           document.find_by(context: eval(element_name)).each do |element|
 
             if element.caption
-              references_asciidoc << %(#{element.caption}#{element.title} +)
+              element_id = SecureRandom.uuid
+              # element.set_attr('id', element_id)
+              # document.references[:ids][element.attributes['id']] = element_id
+              puts document.references[:ids]
+              # xref:new_id[use attributes within the link macro]
+              references_asciidoc << %(xref:#{element_id}[#{element.title}] +)
             end
           end
 
