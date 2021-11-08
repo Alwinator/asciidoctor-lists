@@ -1,12 +1,12 @@
 = asciidoctor-lists
-:toc: macro
-:toclevels: 1
 
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml/badge.svg[Test, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml]
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml/badge.svg[Build, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml]
 image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=https://rubygems.org/gems/asciidoctor-lists]
 
 An https://asciidoctor.org/[asciidoctor] extension that adds a list of figures, a list of tables, or a list of anything you want!
+
+*Pull Request are always welcome! :)*
 
 == Install
 [source,asciidoc]
@@ -46,14 +46,11 @@ element_list::[element=table]
 === Rendered
 image::img/sample.png[Sample,width=400]
 
-== What is planned next?
-* Link between image/table/element and list
-
 == Docker
 [source,bash]
 ----
 # Build container
-docker build --no-cache -t asciidoctor-lists .
+docker build -t asciidoctor-lists .
 # Run Docker
 docker run -it --rm -v $(pwd):/work asciidoctor-lists
 # Build sample
@@ -61,6 +58,13 @@ asciidoctor-pdf -r asciidoctor-lists samples/list-sample.adoc
 ----
 
 == Dev setup
+=== Run
+[source,bash]
+----
+asciidoctor -r ./lib/asciidoctor-lists.rb samples/list-sample.adoc
+----
+
+=== Install Gem
 [source,bash]
 ----
 gem build asciidoctor-lists.gemspec
