@@ -34,7 +34,9 @@ module AsciidoctorLists
          document.find_by(context: eval(element_name)).each do |element|
 
            if element.caption
-             element.id = SecureRandom.uuid
+             unless element.id
+               element.id = SecureRandom.uuid
+             end
              references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
            end
          end
