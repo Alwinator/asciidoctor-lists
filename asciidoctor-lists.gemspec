@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors = ['Alwin Schuster']
   s.homepage = 'https://github.com/Alwinator/asciidoctor-lists'
   s.summary = 'An asciidoctor extension that adds a list of figures, a list of tables, or a list of anything you want!'
-  s.license = 'MIT'
+  s.license = 'MPL-2'
   s.description = 'An asciidoctor extension that adds a list of figures, a list of tables, or a list of anything you want!'
   s.required_ruby_version = '>= 2.4.0'
   s.files = Dir['lib/**/*'] + ['README.adoc']
