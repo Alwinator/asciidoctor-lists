@@ -37,6 +37,17 @@ See link:samples/list-sample.adoc[]
 === Rendered
 image::img/sample.png[Sample,width=400]
 
+== Parameters
+=== element
+Specifies the element which should be listed
+
+Sample: link:samples/list-sample.adoc[]
+
+=== enhanced_rendering (experimental)
+Allows to render links in the caption
+
+Sample: link:samples/enhanced-rendering.adoc[]
+
 == Docker
 [source,bash]
 ----

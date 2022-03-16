@@ -12,10 +12,14 @@ module AsciidoctorLists
     use_dsl
     named :element_list
     name_positional_attributes 'element'
+    name_positional_attributes 'enhanced_rendering'
 
     def process(parent, _target, attrs)
       uuid = SecureRandom.uuid
-      MacroPlaceholder[uuid] = {element: attrs['element']}
+      MacroPlaceholder[uuid] = {
+        element: attrs['element'],
+        enhanced_rendering: attrs['enhanced_rendering']
+      }
       create_paragraph parent, uuid, {}
     end
   end
@@ -30,23 +34,31 @@ module AsciidoctorLists
        end
        tof_blocks.each do |block|
          references_asciidoc = []
-         element_name = ":" + MacroPlaceholder[block.lines[0]][:element]
+
+         params = MacroPlaceholder[block.lines[0]]
+         element_name = ":" + params[:element]
+         enhanced_rendering = params[:enhanced_rendering]
+
          document.find_by(context: eval(element_name)).each do |element|
-           puts element_name
-           puts element
-           puts element.caption
-           puts element.title
 
            if element.caption or element.title
              unless element.id
                element.id = SecureRandom.uuid
              end
 
-             if element.caption
-              references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
-             else element.caption
-              references_asciidoc << %(xref:#{element.id}[#{element.title}] +)
-            end
+             if enhanced_rendering
+                 if element.caption
+                   references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.instance_variable_get(:@title)} +)
+                 else element.caption
+                   references_asciidoc << %(xref:#{element.id}[#{element.instance_variable_get(:@title)}] +)
+                 end
+               else
+                 if element.caption
+                  references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
+                 else element.caption
+                  references_asciidoc << %(xref:#{element.id}[#{element.title}] +)
+               end
+             end
            end
          end
 

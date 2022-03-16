@@ -1,0 +1,24 @@
+= Enhanced rendering
+:notitle:
+:figure-caption: Img
+
+<<<
+== Table of Figures
+element_list::[element=image, enhanced_rendering=true]
+
+<<<
+:sectnums:
+== Test Heading
+.test image <<Q1>>
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[,100,align="left",caption="Img {counter:Img}: "]
+
+.test image <<Q2>>
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[,100,align="left",caption="Img {counter:Img}: "]
+:sectnums!:
+
+<<<
+[bibliography]
+== Bibliography
+
+- [[[Q1,1]]] test image link:https://www.google.com/[]
+- [[[Q2,2]]] test image link:https://www.google.com/[]
