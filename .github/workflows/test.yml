@@ -17,6 +17,15 @@ jobs:
       - name: Install gem
         run: gem install asciidoctor-lists.gem
 
-      - name: Build PDF
-        run: asciidoctor-pdf -r asciidoctor-lists samples/list-sample.adoc
+      - name: Build list-sample as PDF
+        run: asciidoctor-pdf -a allow-uri-read -r asciidoctor-lists samples/list-sample.adoc
+
+      - name: Build enhanced-rendering as PDF
+        run: asciidoctor-pdf -a allow-uri-read -r asciidoctor-lists samples/enhanced-rendering.adoc
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: samples
+          path: samples
 
