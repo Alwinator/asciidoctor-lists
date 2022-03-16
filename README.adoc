@@ -20,20 +20,16 @@ gem install asciidoctor-lists
 ----
 ...
 
-.And this is the second one
-|===
-|Column 1, Header Row |Column 2, Header Row
+.Some Ruby code
+[source,ruby]
+----
+require 'sinatra'
 
-|Cell in column 1, row 1
-|Cell in column 2, row 1
-
-|Cell in column 1, row 2
-|Cell in column 2, row 2
-|===
-
-
-.Another wikipedia SVG image
-image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[SVG,100,100]
+get '/hi' do
+"Hello World!"
+end
+----
+...
 
 === List of figures
 element_list::[element=image]
@@ -41,7 +37,11 @@ element_list::[element=image]
 === List of tables
 element_list::[element=table]
 
+=== List of code snippets
+element_list::[element=listing]
 ----
+
+See link:samples/list-sample.adoc[]
 
 === Rendered
 image::img/sample.png[Sample,width=400]

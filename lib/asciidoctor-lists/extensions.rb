@@ -7,7 +7,7 @@ module AsciidoctorLists
 
     MacroPlaceholder = Hash.new
 
-  # Replaces tof::[] with ListOfFiguresMacroPlaceholder
+  # Replaces element_list::[element=...] with ListOfFiguresMacroPlaceholder
   class ListOfFiguresMacro < ::Asciidoctor::Extensions::BlockMacroProcessor
     use_dsl
     named :element_list
@@ -32,12 +32,21 @@ module AsciidoctorLists
          references_asciidoc = []
          element_name = ":" + MacroPlaceholder[block.lines[0]][:element]
          document.find_by(context: eval(element_name)).each do |element|
+           puts element_name
+           puts element
+           puts element.caption
+           puts element.title
 
-           if element.caption
+           if element.caption or element.title
              unless element.id
                element.id = SecureRandom.uuid
              end
-             references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
+
+             if element.caption
+              references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
+             else element.caption
+              references_asciidoc << %(xref:#{element.id}[#{element.title}] +)
+            end
            end
          end
 

@@ -1,7 +1,32 @@
 == Test the List Macro
+:listing-caption: Code
+
+.Gemfile.lock
+----
+GEM
+  remote: https://rubygems.org/
+  specs:
+    asciidoctor (2.0.15)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  asciidoctor (~> 2.0.15)
+----
 
 .The wonderful linux logo
 image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux Logo,100,100]
+
+.Some Ruby code
+[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
 
 .This is my first table
 |===
@@ -33,3 +58,6 @@ element_list::[element=image]
 
 === List of tables
 element_list::[element=table]
+
+=== List of code snippets
+element_list::[element=listing]
