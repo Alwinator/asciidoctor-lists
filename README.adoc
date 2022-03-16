@@ -22,17 +22,6 @@ gem install asciidoctor-lists
 ----
 ...
 
-.Some Ruby code
-[source,ruby]
-----
-require 'sinatra'
-
-get '/hi' do
-"Hello World!"
-end
-----
-...
-
 === List of figures
 element_list::[element=image]
 
