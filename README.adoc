@@ -10,6 +10,8 @@ An https://asciidoctor.org/[asciidoctor] extension that adds a list of figures, 
 
 *Pull Request are always welcome! :)*
 
+IMPORTANT: With version 1.0.6 the syntax was changed from `element_list::[element=image]` to `list-of::image[]` to make it more intuitive.
+
 == Install
 [source,asciidoc]
 ----
