@@ -23,13 +23,13 @@ gem install asciidoctor-lists
 ...
 
 === List of figures
-element_list::[element=image]
+list-of::image[]
 
 === List of tables
-element_list::[element=table]
+list-of::table[]
 
 === List of code snippets
-element_list::[element=listing]
+list-of::listing[]
 ----
 
 See link:samples/list-sample.adoc[]

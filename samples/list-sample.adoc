@@ -54,10 +54,10 @@ end
 image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[SVG,100,100]
 
 === List of figures
-element_list::[element=image]
+list-of::image[]
 
 === List of tables
-element_list::[element=table]
+list-of::table[]
 
 === List of code snippets
-element_list::[element=listing]
+list-of::listing[]

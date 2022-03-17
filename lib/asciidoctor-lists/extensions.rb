@@ -5,41 +5,39 @@ require 'securerandom'
 module AsciidoctorLists
   module Asciidoctor
 
-    MacroPlaceholder = Hash.new
+    ListMacroAttributes = Hash.new
 
-  # Replaces element_list::[element=...] with ListOfFiguresMacroPlaceholder
-  class ListOfFiguresMacro < ::Asciidoctor::Extensions::BlockMacroProcessor
+  # Replaces list-of::element[] with UUID and saves attributes in ListMacroPlaceholder
+  class ListMacro < ::Asciidoctor::Extensions::BlockMacroProcessor
     use_dsl
-    named :element_list
-    name_positional_attributes 'element'
+    named :"list-of"
     name_positional_attributes 'enhanced_rendering'
 
-    def process(parent, _target, attrs)
+    def process(parent, target, attrs)
       uuid = SecureRandom.uuid
-      MacroPlaceholder[uuid] = {
-        element: attrs['element'],
+      ListMacroAttributes[uuid] = {
+        element: target,
         enhanced_rendering: attrs['enhanced_rendering']
       }
       create_paragraph parent, uuid, {}
     end
   end
-  # Searches for the figures and replaced ListOfFiguresMacroPlaceholder with the list of figures
+  # Searches for the elements and replaced the UUIDs with the lists
   # Inspired by https://github.com/asciidoctor/asciidoctor-bibtex/blob/master/lib/asciidoctor-bibtex/extensions.rb#L162
-  class ListOfFiguresTreeprocessor < ::Asciidoctor::Extensions::Treeprocessor
+  class ListTreeprocessor < ::Asciidoctor::Extensions::Treeprocessor
      def process(document)
        tof_blocks = document.find_by do |b|
          # for fast search (since most searches shall fail)
          (b.content_model == :simple) && (b.lines.size == 1) \
-            && (MacroPlaceholder.keys.include?(b.lines[0]))
+            && (ListMacroAttributes.keys.include?(b.lines[0]))
        end
        tof_blocks.each do |block|
          references_asciidoc = []
 
-         params = MacroPlaceholder[block.lines[0]]
-         element_name = ":" + params[:element]
+         params = ListMacroAttributes[block.lines[0]]
          enhanced_rendering = params[:enhanced_rendering]
 
-         document.find_by(context: eval(element_name)).each do |element|
+         document.find_by(context: params[:element].to_sym).each do |element|
 
            if element.caption or element.title
              unless element.id
@@ -90,6 +88,6 @@ end
 
 # Register the extensions to asciidoctor
 Asciidoctor::Extensions.register do
-  block_macro AsciidoctorLists::Asciidoctor::ListOfFiguresMacro
-  tree_processor AsciidoctorLists::Asciidoctor::ListOfFiguresTreeprocessor
+  block_macro AsciidoctorLists::Asciidoctor::ListMacro
+  tree_processor AsciidoctorLists::Asciidoctor::ListTreeprocessor
 end

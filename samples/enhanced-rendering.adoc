@@ -4,7 +4,7 @@
 
 <<<
 == Table of Figures
-element_list::[element=image, enhanced_rendering=true]
+list-of::image[enhanced_rendering=true]
 
 <<<
 :sectnums:
