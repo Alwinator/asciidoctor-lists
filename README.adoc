@@ -8,7 +8,7 @@ image:https://img.shields.io/github/stars/Alwinator/asciidoctor-lists[Stars, lin
 
 An https://asciidoctor.org/[asciidoctor] extension that adds a list of figures, a list of tables, or a list of anything you want!
 
-*Pull Request are always welcome! :)*
+*Pull Requests are always welcome! :)*
 
 IMPORTANT: With version 1.0.6 the syntax was changed from `element_list::[element=image]` to `list-of::image[]` to make it more intuitive.
 
@@ -41,12 +41,12 @@ image::img/sample.png[Sample,width=400]
 
 == Parameters
 === element
-Specifies the element which should be listed
+Specifies the element to be listed
 
 Sample: link:samples/list-sample.adoc[]
 
 === enhanced_rendering (experimental)
-Allows to render links in the caption
+Allows rendering links in the caption
 
 Sample: link:samples/enhanced-rendering.adoc[]
 
