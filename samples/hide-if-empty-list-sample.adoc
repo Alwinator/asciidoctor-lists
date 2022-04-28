@@ -1,0 +1,14 @@
+== Test the List Macro for empty lists
+:listing-caption: Code
+
+.Another wikipedia SVG image
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[SVG,100,100]
+
+=== List of figures
+list-of::image[hide_empty_section=true]
+
+=== List of tables
+list-of::table[hide_empty_section=true]
+
+=== List of code snippets
+list-of::listing[]

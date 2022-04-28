@@ -50,6 +50,11 @@ Allows rendering links in the caption
 
 Sample: link:samples/enhanced-rendering.adoc[]
 
+=== hide_empty_section
+Removes the section when no elements are found
+
+Sample: link:samples/hide-if-empty-list-sample.adoc
+
 == Docker
 [source,bash]
 ----
