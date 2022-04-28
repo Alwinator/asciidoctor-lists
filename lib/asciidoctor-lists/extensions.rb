@@ -12,12 +12,14 @@ module AsciidoctorLists
     use_dsl
     named :"list-of"
     name_positional_attributes 'enhanced_rendering'
+    name_positional_attributes 'hide_empty_section'
 
     def process(parent, target, attrs)
       uuid = SecureRandom.uuid
       ListMacroAttributes[uuid] = {
         element: target,
-        enhanced_rendering: attrs['enhanced_rendering']
+        enhanced_rendering: attrs['enhanced_rendering'],
+        hide_empty_section: attrs['hide_empty_section']
       }
       create_paragraph parent, uuid, {}
     end
@@ -36,28 +38,34 @@ module AsciidoctorLists
 
          params = ListMacroAttributes[block.lines[0]]
          enhanced_rendering = params[:enhanced_rendering]
+         hide_empty_section = params[:hide_empty_section]
 
-         document.find_by(context: params[:element].to_sym).each do |element|
+         elements = document.find_by(context: params[:element].to_sym)
+         if elements.length > 0
+           elements.each do |element|
 
-           if element.caption or element.title
-             unless element.id
-               element.id = SecureRandom.uuid
-             end
+             if element.caption or element.title
+               unless element.id
+                 element.id = SecureRandom.uuid
+               end
 
-             if enhanced_rendering
-                 if element.caption
-                   references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.instance_variable_get(:@title)} +)
-                 else element.caption
-                   references_asciidoc << %(xref:#{element.id}[#{element.instance_variable_get(:@title)}] +)
+               if enhanced_rendering
+                   if element.caption
+                     references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.instance_variable_get(:@title)} +)
+                   else element.caption
+                     references_asciidoc << %(xref:#{element.id}[#{element.instance_variable_get(:@title)}] +)
+                   end
+                 else
+                   if element.caption
+                    references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
+                   else element.caption
+                    references_asciidoc << %(xref:#{element.id}[#{element.title}] +)
                  end
-               else
-                 if element.caption
-                  references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
-                 else element.caption
-                  references_asciidoc << %(xref:#{element.id}[#{element.title}] +)
                end
              end
            end
+         elsif hide_empty_section
+           block.parent.parent.blocks.delete block.parent
          end
 
          block_index = block.parent.blocks.index do |b|
