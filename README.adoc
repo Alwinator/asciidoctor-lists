@@ -81,4 +81,4 @@ gem install asciidoctor-lists-x.x.x.gem
 ----
 
 == Docker Image
-- Support in official asciidoctor Docker image is waiting for approval (See [PR](https://github.com/asciidoctor/docker-asciidoctor/pull/262))
+- Support in official asciidoctor Docker image is waiting for approval (See https://github.com/asciidoctor/docker-asciidoctor/pull/262)
