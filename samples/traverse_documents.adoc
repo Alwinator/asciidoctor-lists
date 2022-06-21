@@ -1,0 +1,34 @@
+= Test traverse documents
+Alwin J. Schuster
+21.06.2022
+:organization: Company Name
+:doctype: book
+// Settings:
+:experimental:
+:reproducible:
+:icons: font
+:listing-caption: Listing
+:toc: macro
+:toclevels: 3
+
+[discrete]
+== Abstract
+This is the abstract of our project
+
+toc::[]
+
+== List of Figures
+list-of::image[]
+
+:sectnums:
+
+.Route
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[]
+
+[cols="1,1",grid=none,frame=none]
+|===
+a|.Route
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[]
+a|.Runkeeper Training and Insight
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[]
+|===
