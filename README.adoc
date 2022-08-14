@@ -1,9 +1,11 @@
 = asciidoctor-lists
 
+image:https://img.shields.io/gem/dt/asciidoctor-lists[Gem, link=https://rubygems.org/gems/asciidoctor-lists]
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml/badge.svg[Test, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/test.yml]
 image:https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml/badge.svg[Build, link=https://github.com/Alwinator/asciidoctor-lists/actions/workflows/publish_gem.yml]
 image:https://img.shields.io/gem/v/asciidoctor-lists.svg[Latest Release, link=https://rubygems.org/gems/asciidoctor-lists]
 image:https://img.shields.io/github/stars/Alwinator/asciidoctor-lists[Stars, link=https://github.com/Alwinator/asciidoctor-lists]
+
 
 
 An https://asciidoctor.org/[asciidoctor] extension that adds a list of figures, a list of tables, or a list of anything you want!
