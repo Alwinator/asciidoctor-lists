@@ -51,13 +51,13 @@ module AsciidoctorLists
 
                if enhanced_rendering
                    if element.caption
-                     references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.instance_variable_get(:@title)} +)
+                     references_asciidoc << %(xref:#{element.id}[#{element.caption.rstrip()}] #{element.instance_variable_get(:@title)} +)
                    else element.caption
                      references_asciidoc << %(xref:#{element.id}[#{element.instance_variable_get(:@title)}] +)
                    end
                  else
                    if element.caption
-                    references_asciidoc << %(xref:#{element.id}[#{element.caption}]#{element.title} +)
+                    references_asciidoc << %(xref:#{element.id}[#{element.caption.rstrip()}] #{element.title} +)
                    else element.caption
                     references_asciidoc << %(xref:#{element.id}[#{element.title}] +)
                  end
