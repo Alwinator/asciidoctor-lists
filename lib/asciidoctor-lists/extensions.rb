@@ -47,6 +47,7 @@ module AsciidoctorLists
              if element.caption or element.title
                unless element.id
                  element.id = SecureRandom.uuid
+                 document.catalog[:refs][element.id] = element
                end
 
                if enhanced_rendering
