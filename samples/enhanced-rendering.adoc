@@ -12,7 +12,8 @@ list-of::image[enhanced_rendering=true]
 .test image <<Q1>>
 image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[,100,align="left",caption="Img {counter:Img}: "]
 
-.test image <<Q2>>
+// Test back-tick literal is rendered in ToF
+.`test image` <<Q2>>
 image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/SVG_Logo.svg/400px-SVG_Logo.svg.png[,100,align="left",caption="Img {counter:Img}: "]
 :sectnums!:
 
